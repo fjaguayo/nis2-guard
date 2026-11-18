@@ -1,0 +1,27 @@
+name: NIS2 scan
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      # Tip: pin these actions to a commit hash instead of a tag.
+      # It is exactly the kind of supply chain risk this project points out.
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: nis2-guard scan
+        run: python nis2-guard/scripts/nis2_scan.py . --format md --output nis2-report.md --exclude "nis2-guard/scripts/*" --fail-on high
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nis2-report
+          path: nis2-report.md
