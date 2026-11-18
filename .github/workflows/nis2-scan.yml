@@ -13,7 +13,7 @@ jobs:
     steps:
       # Tip: pin these actions to a commit hash instead of a tag.
       # It is exactly the kind of supply chain risk this project points out.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
