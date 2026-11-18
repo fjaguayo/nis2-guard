@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.env
+nis2-report.md
+report.json
