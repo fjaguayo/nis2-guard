@@ -1,14 +1,15 @@
 # Mapping Article 21(2) of NIS2 to repository evidence
 
 Quick reference: what code or a repository can show for each measure, and which scanner
-rules touch it. Directive (EU) 2022/2555.
+rules touch it. Directive (EU) 2022/2555. Scope, Spain and management liability are in
+`nis2-organizational-context.md`; GDPR, AI Act and DORA have their own mapping files.
 
 | Art. | Measure | Possible evidence in the repo | Scanner rules |
 |------|---------|-------------------------------|---------------|
 | 21(2)(a) | Risk analysis and security policies | Policy and risk documents | None (manual) |
 | 21(2)(b) | Incident handling | Response plan, security logs, alerts | PROJECT-NO-INCIDENT-PLAN |
 | 21(2)(c) | Business continuity, backups, crisis management | Backup and restore scripts and documentation | None (manual) |
-| 21(2)(d) | Supply chain security | Lockfiles, pinned versions, SBOM, dependency scanning | PROJECT-NO-LOCKFILE, PROJECT-UNPINNED-DEPS, PROJECT-NO-DEP-SCANNING, PROJECT-NO-SBOM, DOCKER-UNPINNED-IMAGE, DOCKER-CURL-PIPE |
+| 21(2)(d) | Supply chain security | Lockfiles, pinned versions, SBOM, dependency scanning, CI actions pinned to SHAs | PROJECT-NO-LOCKFILE, PROJECT-UNPINNED-DEPS, PROJECT-NO-DEP-SCANNING, PROJECT-NO-SBOM, DOCKER-UNPINNED-IMAGE, DOCKER-CURL-PIPE, DORA-UNPINNED-ACTION |
 | 21(2)(e) | Security in acquisition, development and maintenance; vulnerability handling and disclosure | SECURITY.md, CI with scanning, code review | INJECTION-SQL, EXEC-DANGEROUS, DEBUG-ENABLED, CORS-WILDCARD, PROJECT-NO-SECURITY-POLICY, PROJECT-NO-CI |
 | 21(2)(f) | Assessing the effectiveness of measures | Periodic tests, audit reports | PROJECT-NO-CI (partial) |
 | 21(2)(g) | Cyber hygiene and training | Training records | None (manual) |
@@ -41,4 +42,5 @@ sets the details in its transposition law.
 
 Classification of the entity (essential, important or out of scope), registration with
 the competent authority, supplier contracts, training, real continuity capability and any
-additional sector obligations (DORA, CRA, ENS in Spain).
+additional sector obligations (CRA, ENS in Spain). For GDPR, the AI Act and DORA run the
+scanner with `--framework` and see the matching mapping file.
