@@ -47,8 +47,9 @@ nis2-guard/
 
 ## Using it with Claude
 
-1. Install the skill (from Agensi, or upload the `nis2-guard/` folder in the skills
-   section of Claude's settings).
+1. Install the skill: upload `nis2-guard-skill.zip` (from the root of the repository or
+   the Releases page) in the skills section of Claude's settings, or copy the
+   `nis2-guard/` folder into your Claude Code skills folder.
 2. Ask something like "review this repo for NIS2 and GDPR", "audit our RAG pipeline for
    the AI Act" or "write this payment client with DORA in mind".
 3. Claude picks the frameworks that apply from what the code does (personal data → GDPR,
